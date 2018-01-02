@@ -1,0 +1,8 @@
+# Turn rewrite engine on
+Options +FollowSymlinks
+RewriteEngine on
+
+# map neat URL to internal URL
+RewriteRule ^referers   RestController.php?view=referrals [nc,qsa]
+RewriteRule ^countries  RestController.php?view=countries [nc,qsa]
+RewriteRule ^validateLogin  RestControllerPost.php?view=validateLogin [nc,qsa]
