@@ -7,14 +7,14 @@
 
 		$ok=false;
 		$response['code']= 0;
-		$response['message'] = 'Please Set User Name before Submit';
+		$response['message'] = 'Please enter Employee Id';
 	}
 			
 	else if(!isset($_POST['pass'])){
 				
 		$ok = false;
 		$response['code'] = 0;
-		$response['message'] = 'Please Set password';
+		$response['message'] = 'Please enter password';
 		}				
 	 
 		else{

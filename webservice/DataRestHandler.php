@@ -18,6 +18,12 @@ class DataRestHandler extends SimpleRest {
 			$this ->formatData($rawData);		
 	}
 
+	function getUnattended() {	
+			$referer = new Data();
+			$rawData = $referer->getUnattended();
+			$this ->formatData($rawData);		
+	}
+
 	public function formatData($dataToFormat) {
 		if(empty($dataToFormat)) {
 				$statusCode = 404;

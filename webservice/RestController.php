@@ -22,7 +22,12 @@ switch($view){
 		$dataRestHandler->getCountries();
 		//$dataRestHandler->getMobile($_GET["id"]);
 		break;
-
+	case "getUnattended":
+		// to handle REST Url /mobile/show/<id>/
+		$dataRestHandler = new DataRestHandler();
+		$dataRestHandler->getUnattended();
+		//$dataRestHandler->getMobile($_GET["id"]);
+		break;
 	case "" :
 		//404 - not found;
 		break;
