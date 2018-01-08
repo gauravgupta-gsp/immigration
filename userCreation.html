@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Enquiry| </title>
-
+    <title>Employee Creation |</title>
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -62,8 +61,8 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                      <li><a href="enquiry.html">Enquiry</a></li>
-                         <li><a href="studentRegistration.html">Student Registration</a></li>
+                      <li><a href="userCreation.html">Create Employee</a></li>
+                         <!-- <li><a href="studentRegistration.html">Student Registration</a></li> -->
                          <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
               </div>
@@ -72,7 +71,7 @@
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-           <!--  <div class="sidebar-footer hidden-small">
+         <!--    <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
@@ -104,7 +103,8 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li> -->
-                  <li><a id="anchorLogOut" href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <!-- <li><a id="anchorLogOut" href="index.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li> -->
+                    <li><a id="anchorLogOut" href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
@@ -183,7 +183,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Enquiry</h3>
+                <h3>Create Employee</h3>
               </div>
 
               <div class="title_right">
@@ -202,7 +202,8 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <!-- <h2>Form Design <small></small></h2> -->
+                    <!-- <h2>Form Design <small>different form elements</small></h2> -->
+                    <!-- <h2>Employee Creation </h2> -->
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -222,109 +223,40 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="enquiryForm" name="enquiryForm" method="post"   data-parsley-validate class="form-horizontal form-label-left">
+                    <form  data-parsley-validate class="form-horizontal form-label-left">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Student Name <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Employee Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="txt_emp_name" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Phone Number <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Employee Password<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="phoneNo"  name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="Password" id="txt_emp_pass"  name="last-name" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
+                      
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email Id</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input  id="email"  class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <div id="gender" class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio"  id="radio_male"  name="gender" value="male"> &nbsp; Male &nbsp;
-                            </label>
-                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" id="radio_female" name="gender" value="female"> Female
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Your Address</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="address"   class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Purpose of Visit</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Employee Type</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control" id="purposeOfVisit"   onchange="showCountry()"  >
-                            <option value="-1" >Choose option</option>
-                            <option value="IELTS Training">IELTS Training</option>
-                            <option value="Work Permit">Work Permit</option>
-                            <option value="Study Visa">Study Visa</option>
+                          <select class="form-control" id="drp_emp_type"     >
+                            <option  value="-1" >Choose option</option>
+                            <option value="0">End User</option>
+                            <option value="1">Admin</option>
                           </select>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Country</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control"  id="country" >
-                            <option value="-1" >Choose option</option>
-                            <option value="Australia">Australia</option>
-                            <option value="Canada">Canada</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Referred By</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control"  id="referredBy" >
-                            <option value="-1" >Choose option</option>
-                            <option value="Newspaper">Newspaper</option>
-                            <option value="Social Media">Social Media</option>
-                            <option value="Google">Google</option>
-                            <option value="Person">Person</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Referred Details</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="referDetails"   class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Extra Message</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                           <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="0" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                            data-parsley-validation-threshold="10"></textarea>
-                          <!-- <input  id="extraMessage"   class="form-control col-md-7 col-xs-12" type="text" name="middle-name"> -->
-                        </div>
-                      </div>
-
-<!--                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                        </div>
-                      </div> -->
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-primary" type="button">Cancel</button>
-						              <button  class="btn btn-primary" type="reset">Reset</button>
-                          <!-- <button type="submit"  id="btn_saveEnquiry" class="btn btn-success">Submit</button> -->
-                           <input type="button" id="btn_saveEnquiry" value="Submit" class="btn btn-success">
+						            <button class="btn btn-primary" type="reset">Reset</button>
+                          <!-- <button type="submit"  id="btn_saveEmp" class="btn btn-success">Submit</button> -->
+                            <input type="button" id="btn_saveEmp" value="Submit" class="btn btn-success">
                         </div>
                       </div>
 
@@ -340,7 +272,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            <!-- Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a> -->
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -384,6 +316,6 @@
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
     <script src="js/custom/session.js"></script>
-	 <script src="js/custom/enquiry.js"></script>
+	 <script src="js/custom/login.js"></script>
   </body>
 </html>

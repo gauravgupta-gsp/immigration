@@ -1,129 +1,152 @@
-					/*$(document).ready(function(){
-	             	$('#btn_login').click(function(event){
-	             		window.location = "enquiry.html";
-	 				// if(validate())
-	 				// {
+						$(document).ready(function(){
+		             	$('#btn_saveEmp').click(function(event){
+		             		if(validateUserCreation())
+		             		{
+		             			console.log("Validation Done");
+		             			// alert($("#txt_userName").val());
+		             			  $.ajax({
+		             			        type: "POST",
+		             			        url: "http://buoot.com/webservice/createEmployee",
+		             			        // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
+		             			        data: {"txt_emp_name": $("#txt_emp_name").val(), "txt_emp_pass":  $("#txt_emp_pass").val(),
+		             			         "drp_emp_type":  $("#drp_emp_type").val()},
+		             			        dataType: "json",
+		             			        accepts: {
+		             			        text: "text/plain",
+		             			        html: "text/html",
+		             			        xml: "application/xml, text/xml",
+		             			        json: "application/json, text/javascript"
+		             			        },
+		             			        success: function (response)
+		             			         {
+		             			        console.log(response.message);
+		             			        alert(response.message);
+		             			    	 },
+		             			    	 error: function(error){
+		             			    	 alert(error.message);
+		             			    	 }
+		             		});
+		             	}
+		             	// else
+		             	// 	{
+		             	// 		console.log("Validation Fail");
+		             	// 	}
+		             		   });
 
-	 					var form_data = new FormData();
-	 					form_data.append("userName",$('#txt_userName').val());
-	 					form_data.append("password",$('#txt_password').val());	 					
-	 					alert(form_data);
-	 					$.ajax({
-	 					 url:"login.php",
-	 					 method:"POST",
-	 					 data: form_data,
-	 					 contentType: false,
-	 					 cache: false,
-	 					 processData: false,
-	 					 beforeSend:function(){
-	 					  
-	 					 },   
-	 					 success:function(data)
-	 					 {	 					  
-	 					  alert(data);	 	
-	 					  if(data == "success") {
-	 					  	window.location = "enquiry.html";
-	 					  } else {
-	 					  	alert('wrong user name or password');
-	 					  }
-	 					 }
-	 					});
-	 					
-	 				// }
-	     //          else
-	     //          {
-	     //          	alert('problem');
+		             	      });
 
-	     //          }
-	             });
-	            });*/
+	function succeeded(data, textStatus, request) {
+	    var result = $.parseJSON(data.d);
 
-	/*				
+	}
 
-	function AjaxCall() {
-    $.ajax({
-        type: "POST",
-        url: "http://buoot.com/webservice/referers",
-        alert($("txt_userName").val());
-        data: "{email : $("txt_userName").val(), passCodeHash: $("txt_password").val()}",
-        contentType: "application/json",
-        dataType: "json",
-        success: succeeded,
-        error: queryError
-    });
-}*/
+	function queryError(request, textStatus, errorThrown) {
+	    alert(request.responseText, textStatus + " " + errorThrown);
+	}
 
-function succeeded(data, textStatus, request) {
-    var result = $.parseJSON(data.d);
+	$("#btn_login").on( "click", function( event ) {
+			if(validate())
+			{
+				console.log("Validation Done");
+				// alert($("#txt_userName").val());
+				  $.ajax({
+				        type: "POST",
+				        url: "http://buoot.com/webservice/validateLogin",
+				        // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
+				        data: {"emp_id": $("#txt_userName").val(), "pass":  $("#txt_password").val()},
+				        dataType: "json",
+				        accepts: {
+				        text: "text/plain",
+				        html: "text/html",
+				        xml: "application/xml, text/xml",
+				        json: "application/json, text/javascript"
+				        },
+				        success: function (response) {
+				        console.log(response);
+				       	if(response.message=='Success')
+				       	{
+				       		 window.sessionStorage.setItem('empId',$("#txt_userName").val());
+				       		 window.sessionStorage.setItem('empType',response.emp_type);
+				       		 window.sessionStorage.setItem('emp_name',response.emp_name);
+				       		if(response.emp_type=='0')	
+				       		{
+				       			window.location='enquiry.html';
+				       		}
+				       		else
+				       		{
+				       			window.location='userCreation.html';	
+				       		}	
+				       	}
+				       	else
+				       	{
+				       		 alert("Invalid User Name or Password");
+				       	}
+				        },
+				        error: function(error){
+				        alert("Something went wrong", error);
+				        }
+				    });
+			}
+	});
 
-}
+	function validate() {      	
 
-function queryError(request, textStatus, errorThrown) {
-    alert(request.responseText, textStatus + " " + errorThrown);
-}
+		 if($.trim($('#txt_userName').val())== "" )
+		 {
+		    alert( "Please provide your user name!" );
+		    $('#txt_userName').focus();	    
+		    return false;
+		 }	 
+		else if($.trim($('#txt_password').val())=="" )
+		 {
+		    alert( "Please enter password!" );
+		      $('#txt_password').focus();
+		    return false;
+		 }
+		 return (true);
+		}	
 
-$("#btn_login").on( "click", function( event ) {
-		if(validate())
-		{
-			console.log("Validation Done");
-			// alert($("#txt_userName").val());
-			  $.ajax({
-			        type: "POST",
-			        url: "http://buoot.com/webservice/validateLogin",
-			        // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
-			        data: {"emp_id": $("#txt_userName").val(), "pass":  $("#txt_password").val()},
-			        dataType: "json",
-			        accepts: {
-			        text: "text/plain",
-			        html: "text/html",
-			        xml: "application/xml, text/xml",
-			        json: "application/json, text/javascript"
-			        },
-			        success: function (response) {
-			        console.log(response);
-			       	if(response.message=='Success')
-			       	{
-			       		window.location='enquiry.html';
-			       	}
-			       	else
-			       	{
-			       		 alert("Invalid User Name or Password");
-			       	}
-			        },
-			        error: function(error){
-			        alert("Something went wrong", error);
-			        }
-			    });
-		}
-});
 
-function validate() {      	
+		function validateUserCreation() {      	
 
-	 if($.trim($('#txt_userName').val())== "" )
-	 {
-	    alert( "Please provide your user name!" );
-	    $('#txt_userName').focus();	    
-	    return false;
-	 }	 
-	else if($.trim($('#txt_password').val())=="" )
-	 {
-	    alert( "Please enter password!" );
-	      $('#txt_password').focus();
-	    return false;
-	 }
-	 return (true);
-	}	
+			 if($.trim($('#txt_emp_name').val())== "" )
+			 {
+			    alert( "Please provide Employee name!" );
+			    $('#txt_emp_name').focus();	    
+			    return false;
+			 }	 
+			else if($.trim($('#txt_emp_pass').val())=="" )
+			 {
+			    alert( "Please enter employee password!" );
+			      $('#txt_emp_pass').focus();
+			    return false;
+			 }
+			 else if($.trim($('#drp_emp_type').val())=="" )
+			  {
+			     alert( "Please select employee type!" );
+			       $('#drp_emp_type').focus();
+			     return false;
+			  }
+			 return (true);
+			}	
 
-function succeeded(data, textStatus, request) {
-    var result = $.parseJSON(data.d);
-    alert(result);
 
-}
+	function succeeded(data, textStatus, request) {
+	    var result = $.parseJSON(data.d);
+	    alert(result);
 
-function queryError(request, textStatus, errorThrown) {
-    alert(request.responseText, textStatus + " " + errorThrown);
-}
+	}
 
-function helloSay() {
-	alert("clicked");
-}
+	function queryError(request, textStatus, errorThrown) {
+	    alert(request.responseText, textStatus + " " + errorThrown);
+	}
+
+	function helloSay() {
+		alert("clicked");
+	}
+	function resetCreateEmp()
+	{
+		$('#txt_emp_name').val('');
+		$('#txt_emp_pass').val('');
+		$('#drp_emp_type').val('-1');
+	}

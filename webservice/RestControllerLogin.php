@@ -3,24 +3,30 @@
 	// include "connection.php";
 	$response = array();
 	$ok = true;
-	if(!isset($_POST['emp_id'])){
+	if(!isset($_POST['txt_emp_name'])){
 
 		$ok=false;
 		$response['code']= 0;
-		$response['message'] = 'Please enter Employee Id';
+		$response['message'] = 'Please enter name';
 	}
 			
-	else if(!isset($_POST['pass'])){
+	else if(!isset($_POST['txt_emp_pass'])){
 				
 		$ok = false;
 		$response['code'] = 0;
 		$response['message'] = 'Please enter password';
 		}				
+	else if(!isset($_POST['drp_emp_type'])){
+				
+		$ok = false;
+		$response['code'] = 0;
+		$response['message'] = 'Please enter employee type';
+		}
 	 
 		else{
-			session_start();
-			$empId = $_POST['emp_id'];			
-			$pass = $_POST['pass'];
+			$name = $_POST['txt_emp_name'];			
+			$pass = $_POST['txt_emp_pass'];
+			$drp_type = $_POST['drp_emp_type'];
 
 			$servername = "localhost";
 			$username = "buoot_gaurav";
@@ -34,23 +40,20 @@
 			        die("Connection failed: " . mysqli_connect_error());
 			    }
 			    else {
-			    	$sql = "SELECT emp_name,user_type FROM employee where emp_id= '$empId' AND password= '$pass' ;" ;
+			    	// $sql = "SELECT * FROM employee where emp_id= '$name' AND password= '$pass' ;" ;
+			    	$sql = "INSERT INTO employee (emp_name,password,user_type) VALUES('$name','$pass', '$drp_type');" ;
 			    	// $sql = "SELECT * FROM employee";
-			    	$result = [];
-			    	$result = mysqli_query($conn, $sql);
-			    	if ($row = $result->fetch_assoc()) {
-			    				$_SESSION["emp_id"] = $empId;
-			    				$_SESSION["emp_name"] = $row["emp_name"];
-			    				$_SESSION["emp_user_type"] = $row["user_type"];
-			    				$response['code'] = 200;
-				   				$response['message'] = 'Success' ;
-				   				$response['emp_type'] = $row["user_type"];
-				   				$response['emp_name'] = $row["emp_name"];
-			    	    // echo ;
-			    	}else
-			    	{
-			    		$response['code'] = 0;
-				   		$response['message'] = 'Failure'. $sql . "<br>" . mysqli_error($conn);
+/*			    	$result = [];
+			    	$result = mysqli_query($conn, $sql);*/
+			    	if (mysqli_query($conn, $sql)) {
+			    	    $last_id = mysqli_insert_id($conn);
+			    	    //echo "New record created successfully. Last inserted ID is: " . $last_id;
+        				$response['code'] = 200;
+    	   				$response['message'] = 'User created successfully. Employee id is :  '.$last_id ;
+			    	} else {
+    		    			$response['code'] = 200;
+    			   			$response['message'] = 'Failure'.mysqli_error($conn);
+			    	    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 			    	}
 
 			    }

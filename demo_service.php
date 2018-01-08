@@ -18,5 +18,5 @@ $conversation_id = $context->conversation_id;
 //db_hit($conversation_id,$mobile,$imei,$input_text,$output_text,$entity,$db_method);
 break; 
 
-http://localhost.php?method=student_docs
+
 ?>

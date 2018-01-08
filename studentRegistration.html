@@ -38,7 +38,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Immigration</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -50,7 +50,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2 id="hEmpName" ></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -71,11 +71,11 @@
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
+          <!--   <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -90,19 +90,19 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Emp Name
+                    <img src="images/img.jpg" alt=""><span id="hEmpName1" ></span>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
+                    <!-- <li><a href="javascript:;"> Profile</a></li>
                     <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
                         <span>Settings</span>
                       </a>
                     </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="javascript:;">Help</a></li> -->
+                    <li><a id="anchorLogOut" href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
@@ -124,7 +124,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Enquiry</h3>
+                <h3>Student Registration</h3>
               </div>
 
               <div class="title_right">
@@ -165,8 +165,9 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Date Of Birth<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12 ">
-                          <input type="text" id="bday"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="bday" placeholder="dd-mm-yyyy"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
+                          <label  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Format is dd-mm-yyyy</label>
                       </div>
 
                        
@@ -187,7 +188,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Visa Type</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="form-control" id="visaType"   onchange="showCountry()"  >
-                            <option>Choose option</option>
+                            <option value="-1" >Choose option</option>
                             <option value="work">Work</option>
                             <option value="study">Study</option>
                           </select>
@@ -197,7 +198,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Interested Country</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="form-control"  id="country" >
-                            <option>Choose option</option>
+                            <option value="-1" >Choose option</option>
                             <option value="Australia">Australia</option>
                             <option value="cananda">Canada</option>
                           </select>
@@ -208,7 +209,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="browse_pass_front" name="browse_pass_front" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label id="browse_pass_front_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label id="browse_pass_front_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                       </div>
 
                       <div class="form-group">
@@ -216,7 +217,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input  id="browse_pass_back" name="browse_pass_back" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label id="browse_pass_back_status" for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label id="browse_pass_back_status" for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                         </div>
 
                         <div class="form-group">
@@ -224,7 +225,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input  id="browse_ielts" name="browse_ielts" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label id="browse_ielts_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label id="browse_ielts_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                         </div>
 
                         <div class="form-group">
@@ -232,7 +233,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input  id="browse_tenth" name="browse_tenth" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label id="browse_tenth_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label id="browse_tenth_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                         </div>
 
                         <div class="form-group">
@@ -240,7 +241,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input  id="browse_twelth" name="browse_twelth" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label id="browse_twelth_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label id="browse_twelth_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                         </div>
 
                         <div class="form-group">
@@ -248,7 +249,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input  id="browse_graduation" name="browse_graduation" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label id="browse_graduation_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label id="browse_graduation_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                         </div>
 
                         <div class="form-group">
@@ -256,7 +257,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input  id="browse_post_graduation" name="browse_post_graduation" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label id="browse_post_graduation_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label id="browse_post_graduation_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                         </div>
 
                         <div class="form-group">
@@ -264,7 +265,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input  id="browse_phd" name="browse_phd" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label  id="browse_phd_status" for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label  id="browse_phd_status" for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                         </div>
 
                         <div class="form-group">
@@ -272,7 +273,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input  id="browse_resume" name="browse_resume" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label id="browse_resume_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label id="browse_resume_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                         </div>
 
                         <div class="form-group">
@@ -280,7 +281,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input  id="browse_work_experience" name="browse_work_experience" class="multiple_file_upload form-control col-md-7 col-xs-12" type="file" >
                         </div>
-                        <label id="browse_work_experience_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12">Passport Front</label>
+                        <label id="browse_work_experience_status"  for="middle-name" style="text-align: left!important;" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                         </div>
                       </div>
 
@@ -356,6 +357,7 @@
     <script src="vendors/starrr/dist/starrr.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
+    <script src="js/custom/session.js"></script>
 	      <script src="js/custom/studentReg.js"></script>
    
   </body>

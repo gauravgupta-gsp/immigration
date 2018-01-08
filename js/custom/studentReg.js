@@ -10,7 +10,9 @@
   browse_work_experience="";
 
     $(document).ready(function (e) {
-
+ // <?php $_SESSION['isloggedIn']=false;?>
+  // var session1 = '<?php $_SESSION['isloggedIn'];?>'
+  // console.log('ss '+session1);
     getUnattended();
 
     /* code to upload files */
@@ -104,18 +106,20 @@
                   json: "application/json, text/javascript"
                   },
                   success: function (response) {
-                  console.log(response);
-                  // if(response.message=='Success')
-                  // {
-                  //   // window.location='enquiry.html';
-                  // }
+                  console.log(response.message);
+                  if($.trim(response.message)=='New record created successfully')
+                  {
+                    // window.location='enquiry.html';
+                    resetStudentReg();
+                    alert(response.message);
+                  }
                   // else
                   // {
                   //    alert("Invalid User Name or Password");
                   // }
                   },
                   error: function(error){
-                    console.log('error '+error);
+                    console.log('Something went wrong '+error.message);
                   // alert("Something went wrong", error);
                   }
               });
@@ -248,3 +252,26 @@
     	});
     }
 
+
+function resetStudentReg()
+{
+
+$('#current_student_id').val('');
+$('#name').val('');
+$('#phoneNo').val('');
+$('#bday').val('');
+$('#email').val('');
+$('#passportNo').val('');
+$('#visaType').val('');
+$('#country').val('');
+$('#browse_pass_front').val('');
+$('#browse_pass_back').val('');
+$('#browse_ielts').val('');
+$('#browse_tenth').val('');
+$('#browse_twelth').val('');
+$('#browse_graduation').val('');
+$('#browse_post_graduation').val('');
+$('#browse_phd').val('');
+$('#browse_resume').val('');
+$('#browse_work_experience').val('');
+}

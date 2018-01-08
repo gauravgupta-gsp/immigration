@@ -24,7 +24,8 @@
 		$referredBy = test_input($_POST["referredBy"]);
 		$referDetails = test_input($_POST["referDetails"]);
 		$employeeId = test_input($_POST["employeeId"]);
-		$extraMessage = test_input($_POST["extraMessage"]);
+		$extraMessage = test_input($_POST["message"]);
+
 
 
 
@@ -36,9 +37,9 @@
 		  return $data;
 		}
 
-	if (strlen($nameErr) == 0 && strlen($phoneNoErr) == 0 && strlen($genderErr) ==0)
-	{	
-		echo $name;
+	// if (strlen($nameErr) == 0 && strlen($phoneNoErr) == 0 && strlen($genderErr) ==0)
+	// {	
+		// echo $name;
 		$servername = "localhost";
 		$username = "buoot_gaurav";
 		$password = "Gaurav@1";
@@ -55,8 +56,8 @@
 
 		    $sql = "INSERT INTO `buoot_immigration`.`student`
 		     (`student_id`, `student_name`, `gender`, `address`, `email`, `phone_no`, `passport_no`, `purpose_of_visit`, `country`, `referred_by`, `referred_details`, `visa_type`, `file_status`, `status`, `created_date`, `createdby`, `message`)
-		     VALUES (NULL, '$name', '$gender', '$address', '$email', '$phoneNo','10101',
-		       '$purposeOfVisit','$country', '$referredBy', '$referDetails','visatype','1','1',NULL,'101','$message');";
+		     VALUES (NULL, '$name', '$gender', '$address', '$email', '$phoneNo',NULL,
+		       '$purposeOfVisit','$country', '$referredBy', '$referDetails',NULL,'1','1',NULL,'$employeeId','$extraMessage');";
 		    /*$sql = "INSERT INTO `buoot_immigration`.`student` (`student_id`, `student_name`, `gender`, `address`, `email`, `phone_no`, `passport_no`, `purpose_of_visit`, `country`, `referred_by`, `referred_details`, `visa_type`, `file_status`, `status`, `created_date`, `createdby`,'message') VALUES (NULL, 'abc', 'male', 'ajdslsandflas sadfj', 'laltig', '9646834818', '3145sdf6d', 'abc', 'India', 'Google', 'face', 'Work', '1', '1', CURRENT_TIMESTAMP, '101','');";*/
 /*<!-- INSERT INTO `buoot_immigration`.`student` (`student_id`, `student_name`, `gender`, `address`, `email`, `phone_no`, `passport_no`, `purpose_of_visit`, `country`, `referred_by`, `referred_details`, `visa_type`, `file_status`, `status`, `created_date`, `createdby`,'message') VALUES (NULL, 'abc', 'male', 'ajdslsandflas sadfj', 'laltig', '9646834818', '3145sdf6d', 'abc', 'India', 'Google', 'face', 'Work', '1', '1', CURRENT_TIMESTAMP, '101',); -->
 		    <!-- INSERT INTO `buoot_immigration`.`student` (`student_id`, `student_name`, `gender`, `address`, `email`, `phone_no`, `passport_no`, `purpose_of_visit`, `country`, `referred_by`, `referred_details`, `visa_type`, `file_status`, `status`, `created_date`, `createdby`) VALUES (NULL, 'abc', 'male', 'ajdslsandflas sadfj', 'laltig', '9646834818', '3145sdf6d', 'abc', 'India', 'Google', 'face', 'Work', '1', '1', CURRENT_TIMESTAMP, '101'); -->*/
@@ -69,11 +70,11 @@
 		    echo $sql . "<br>" . $e->getMessage();
 		    }
 		$conn = null;
-	}
-	else
-	{
-		echo "Error exist on page";
+	// }
+	// else
+	// {
+	// 	echo "Error exist on page";
 
-	}
+	// }
 
 	?>

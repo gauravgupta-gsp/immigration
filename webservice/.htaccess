@@ -5,6 +5,9 @@ RewriteEngine on
 # map neat URL to internal URL
 RewriteRule ^referers   RestController.php?view=referrals [nc,qsa]
 RewriteRule ^countries  RestController.php?view=countries [nc,qsa]
+RewriteRule ^killSession  RestController.php?view=killSession [nc,qsa]
 RewriteRule ^getUnattended  RestController.php?view=getUnattended [nc,qsa]
 RewriteRule ^validateLogin  RestControllerPost.php?view=validateLogin [nc,qsa]
+RewriteRule ^checkSession  RestControllerSession.php?view=checkSession [nc,qsa]
+RewriteRule ^createEmployee  RestControllerLogin.php?view=createEmployee [nc,qsa]
 RewriteRule ^studentDocs  RestControllerReg.php?view=studentDocs [nc,qsa]

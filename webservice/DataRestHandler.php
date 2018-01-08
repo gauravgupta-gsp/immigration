@@ -17,10 +17,21 @@ class DataRestHandler extends SimpleRest {
 			$rawData = $referer->getCountries();
 			$this ->formatData($rawData);		
 	}
+	function killSession() {	
+			$referer = new Data();
+			$rawData = $referer->killSession();
+			$this ->formatData($rawData);		
+	}
 
 	function getUnattended() {	
 			$referer = new Data();
 			$rawData = $referer->getUnattended();
+			$this ->formatData($rawData);		
+	}
+
+	function createEmployee() {	
+			$referer = new Data();
+			$rawData = $referer->createEmployee($_POST['data']);
 			$this ->formatData($rawData);		
 	}
 
