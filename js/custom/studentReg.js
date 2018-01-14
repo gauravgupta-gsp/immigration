@@ -76,7 +76,7 @@
           // alert($("#txt_userName").val());
             $.ajax({
                   type: "POST",
-                  url: "http://buoot.com/webservice/studentDocs",
+                  url: "http://buoot.com/immigration/webservice/studentDocs",
                   // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
                   data: {
                   "student_id": $("#current_student_id").val(), 
@@ -220,7 +220,7 @@
     function getUnattended()
     {
     	$.ajax({
-    	url: 'http://buoot.com/webservice/getUnattended',
+    	url: 'http://buoot.com/immigration/webservice/getUnattended',
     	type: "GET",
     	//accepts: "application/json; charset=utf-8",
     	//data: {"event":{"title": title, "description": desc, "start": start}},

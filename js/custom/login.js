@@ -7,7 +7,7 @@
 		             			// alert($("#txt_userName").val());
 		             			  $.ajax({
 		             			        type: "POST",
-		             			        url: "http://buoot.com/webservice/createEmployee",
+		             			        url: "http://buoot.com/immigration/webservice/createEmployee",
 		             			        // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
 		             			        data: {"txt_emp_name": $("#txt_emp_name").val(), "txt_emp_pass":  $("#txt_emp_pass").val(),
 		             			         "drp_emp_type":  $("#drp_emp_type").val()},
@@ -20,7 +20,8 @@
 		             			        },
 		             			        success: function (response)
 		             			         {
-		             			        console.log(response.message);
+		             			        // console.log(response.message);
+                              getEmployees();
 		             			        alert(response.message);
 		             			    	 },
 		             			    	 error: function(error){
@@ -52,7 +53,7 @@
 				// alert($("#txt_userName").val());
 				  $.ajax({
 				        type: "POST",
-				        url: "http://buoot.com/webservice/validateLogin",
+				        url: "http://buoot.com/immigration/webservice/validateLogin",
 				        // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
 				        data: {"emp_id": $("#txt_userName").val(), "pass":  $("#txt_password").val()},
 				        dataType: "json",
@@ -69,6 +70,7 @@
 				       		 window.sessionStorage.setItem('empId',$("#txt_userName").val());
 				       		 window.sessionStorage.setItem('empType',response.emp_type);
 				       		 window.sessionStorage.setItem('emp_name',response.emp_name);
+                   console.log("Session Data "+$("#txt_userName").val()+" "+response.emp_type+" "+response.emp_name);
 				       		if(response.emp_type=='0')	
 				       		{
 				       			window.location='enquiry.html';
@@ -155,7 +157,7 @@
 	 function getEmployees()
     {
     	$.ajax({
-    	url: 'http://buoot.com/webservice/getEmployees',
+    	url: 'http://buoot.com/immigration/webservice/getEmployees',
     	type: "GET",
     	//accepts: "application/json; charset=utf-8",
     	//data: {"event":{"title": title, "description": desc, "start": start}},
@@ -206,110 +208,4 @@
     	});
     }
 
-    function getCountries()
-    {
-    	$.ajax({
-    	url: 'http://buoot.com/webservice/getCountries',
-    	type: "GET",
-    	//accepts: "application/json; charset=utf-8",
-    	//data: {"event":{"title": title, "description": desc, "start": start}},
-    	dataType:'json',
-    	accepts: {
-    	text: "text/plain",
-    	html: "text/html",
-    	xml: "application/xml, text/xml",
-    	json: "application/json, text/javascript"
-    	},
-    	success: function (response) {
-    	console.log(response.data[0]);
-
-    	var tableData = response.data;
-    	var i =1;
-
-    	$(response.data).each(function(index, element){  
-    		if(i % 2 == 0) {
-    	     $('#employeeTable').append('<tr class="odd pointer"><td> '+element.country_id+' </td> <td> '+element.country_name+' </td></tr>');       
-    	 	}
-    	 	else {
-    	 		$('#employeeTable').append('<tr class="even pointer"><td> '+element.country_id+' </td> <td> '+element.country_name+' </td></tr>');
-    	 	}
-    	});
-    	// var tableData = response.data;
-    	// console.log('Data ' +  tableData[0]);
-
-    	/*var data = { "scores" : [ ["3/1/2011", 610],["4/1/2011", 610],["5/1/2011", 610],["6/1/2011", 610], ["7/1/2011", 720], ["8/1/2011", 500], ["9/1/2011", 500] ] }
-    	$(data.scores).each(function(index, element){  
-    	     $('#scores').append('<tr><td> '+element[0]+' </td> <td> '+element[1]+' </td></tr>');       
-    	})*/
-      // $('#current_student_id').val(response.student_id);
-      // $('#name').val(response.student_name);
-      // $('#phoneNo').val(response.phone_no);
-      // $('#bday').val(response.bday);
-      // $('#email').val(response.email);
-      // $('#passportNo').val('');
-      // console.log('Updated is '+response.updateResult);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-    	},
-    	error: function(error){
-    	alert("Something went wrong", error);
-    	}
-    	});
-    }
-
-    function getReferers()
-    {
-    	$.ajax({
-    	url: 'http://buoot.com/webservice/getEmployees',
-    	type: "GET",
-    	//accepts: "application/json; charset=utf-8",
-    	//data: {"event":{"title": title, "description": desc, "start": start}},
-    	dataType:'json',
-    	accepts: {
-    	text: "text/plain",
-    	html: "text/html",
-    	xml: "application/xml, text/xml",
-    	json: "application/json, text/javascript"
-    	},
-    	success: function (response) {
-    	console.log(response.data[0]);
-
-    	var tableData = response.data;
-    	var i =1;
-
-    	$(response.data).each(function(index, element){  
-    		if(i % 2 == 0) {
-    	     $('#employeeTable').append('<tr class="odd pointer"><td> '+element.referred_by_id+' </td> <td> '+element.referred_by_name+' </td></tr>');       
-    	 	}
-    	 	else {
-    	 		$('#employeeTable').append('<tr class="even pointer"><td> '+element.referred_by_id+' </td> <td> '+element.referred_by_name+' </td></tr>');
-    	 	}
-    	});
-    	// var tableData = response.data;
-    	// console.log('Data ' +  tableData[0]);
-
-    	/*var data = { "scores" : [ ["3/1/2011", 610],["4/1/2011", 610],["5/1/2011", 610],["6/1/2011", 610], ["7/1/2011", 720], ["8/1/2011", 500], ["9/1/2011", 500] ] }
-    	$(data.scores).each(function(index, element){  
-    	     $('#scores').append('<tr><td> '+element[0]+' </td> <td> '+element[1]+' </td></tr>');       
-    	})*/
-      // $('#current_student_id').val(response.student_id);
-      // $('#name').val(response.student_name);
-      // $('#phoneNo').val(response.phone_no);
-      // $('#bday').val(response.bday);
-      // $('#email').val(response.email);
-      // $('#passportNo').val('');
-      // console.log('Updated is '+response.updateResult);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-    	},
-    	error: function(error){
-    	alert("Something went wrong", error);
-    	}
-    	});
-    }
+   

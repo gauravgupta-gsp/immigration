@@ -7,7 +7,7 @@
 		             			// alert($("#txt_userName").val());
 		             			  $.ajax({
 		             			        type: "POST",
-		             			        url: "http://buoot.com/webservice/createReferer",
+		             			        url: "http://buoot.com/immigration/webservice/createReferer",
 		             			        // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
 		             			        data: {"txt_country_name": $("#txt_country_name").val()},
 		             			        dataType: "json",
@@ -51,7 +51,7 @@
 				// alert($("#txt_userName").val());
 				  $.ajax({
 				        type: "POST",
-				        url: "http://buoot.com/webservice/validateLogin",
+				        url: "http://buoot.com/immigration/webservice/validateLogin",
 				        // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
 				        data: {"emp_id": $("#txt_userName").val(), "pass":  $("#txt_password").val()},
 				        dataType: "json",
@@ -155,7 +155,7 @@
     function getReferers()
     {
     	$.ajax({
-    	url: 'http://buoot.com/webservice/getEmployees',
+    	url: 'http://buoot.com/immigration/webservice/getEmployees',
     	type: "GET",
     	//accepts: "application/json; charset=utf-8",
     	//data: {"event":{"title": title, "description": desc, "start": start}},

@@ -7,7 +7,7 @@
 		             			// alert($("#txt_userName").val());
 		             			  $.ajax({
 		             			        type: "POST",
-		             			        url: "http://buoot.com/webservice/createEmployee",
+		             			        url: "http://buoot.com/immigration/webservice/createEmployee",
 		             			        // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
 		             			        data: {"txt_emp_name": $("#txt_emp_name").val(), "txt_emp_pass":  $("#txt_emp_pass").val(),
 		             			         "drp_emp_type":  $("#drp_emp_type").val()},
@@ -52,7 +52,7 @@
 				// alert($("#txt_userName").val());
 				  $.ajax({
 				        type: "POST",
-				        url: "http://buoot.com/webservice/validateLogin",
+				        url: "http://buoot.com/immigration/webservice/validateLogin",
 				        // data: "{username : $("#txt_userName").val(), password: $("#txt_password").val()}",
 				        data: {"emp_id": $("#txt_userName").val(), "pass":  $("#txt_password").val()},
 				        dataType: "json",
@@ -155,7 +155,7 @@
 	 function getStudents()
     {
     	$.ajax({
-    	url: 'http://buoot.com/webservice/getStudents',
+    	url: 'http://buoot.com/immigration/webservice/getStudents',
     	type: "GET",
     	//accepts: "application/json; charset=utf-8",
     	//data: {"event":{"title": title, "description": desc, "start": start}},
@@ -174,10 +174,10 @@
 
     	$(response.data).each(function(index, element){  
     		if(i % 2 == 0) {
-    	     $('#studentTable').append('<tr class="odd pointer"><td> '+element.student_id+' </td> <td> '+element.student_name+' </td> <td> '+element.gender+'  </td>  <td> '+element.bday+'  </td> <td> '+element.email+'  </td> <td> '+element.phone_no+' </td> <td> '+element.passport_no+' </td> <td> '+element.purpose_of_visit+'</td> <td> '+element.country+' </td><td> '+element.referred_by+'  </td></tr>');       
+    	     $('#studentTable').append('<tr class="odd pointer"><td> '+element.student_id+' </td> <td> '+element.student_name+' </td> <td> '+element.gender+'  </td>  <td> '+element.bday+'  </td> <td> '+element.email+'  </td> <td> '+element.phone_no+' </td> <td> '+element.address+' </td><td> '+element.passport_no+' </td> <td> '+element.purpose_of_visit+'</td> <td> '+element.country+' </td><td> '+element.referred_by+'  </td></tr>');       
     	 	}
     	 	else {
-    	 		$('#studentTable').append('<tr class="even pointer"><td> '+element.student_id+' </td> <td> '+element.student_name+' </td> <td> '+element.gender+'  </td>  <td> '+element.bday+'  </td> <td> '+element.email+'  </td> <td> '+element.phone_no+' </td> <td> '+element.passport_no+' </td> <td> '+element.purpose_of_visit+'</td> <td> '+element.country+' </td><td> '+element.referred_by+'  </td></tr>');       
+    	 		$('#studentTable').append('<tr class="even pointer"><td> '+element.student_id+' </td> <td> '+element.student_name+' </td> <td> '+element.gender+'  </td>  <td> '+element.bday+'  </td> <td> '+element.email+'  </td> <td> '+element.phone_no+' </td> <td> '+element.address+' </td><td> '+element.passport_no+' </td> <td> '+element.purpose_of_visit+'</td> <td> '+element.country+' </td><td> '+element.referred_by+'  </td></tr>');       
     	 	}
     	});
     	

@@ -1,4 +1,5 @@
 <?php
+		header("Access-Control-Allow-Origin: *");
 	header ( 'Content-type: application/json' );
 	// include "connection.php";
 /*	$METHOD = $_GET['method'];
