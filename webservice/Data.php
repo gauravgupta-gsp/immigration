@@ -1,6 +1,6 @@
 <?php
 Class Data {
-	public function getReferers() {
+	public function get_Referers() {
 		$servername = "localhost";
 		$username = "buoot_gaurav";
 		$password = "Gaurav@1";
@@ -35,7 +35,180 @@ Class Data {
 
 	}
 
+	public function getStudents() {
+		$servername = "localhost";
+		$username = "buoot_gaurav";
+		$password = "Gaurav@1";
+		$dbname = "buoot_immigration";
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		    // set the PDO error mode to exception
+		    if (!$conn) {
+		        die("Connection failed: " . mysqli_connect_error());
+		    }
+		    $sql = "SELECT * FROM student";
+		    $items =  array();
+
+		    $result = [];
+
+		    $result = mysqli_query($conn, $sql);
+		    $i =0;
+
+		    if (mysqli_num_rows($result) >0) {
+		    	while($row = mysqli_fetch_assoc($result)) {		    		    		
+		    		$items[] = $row;		    		
+		    	}    		    	
+		    	header('Content-type: application/json');
+		    	$String = array('code' =>0,'message'=>'success' );
+		    	$String['data']=$items;
+		    	return $String;
+		    	// echo json_encode($String);
+		    	// return $items;
+		    
+		    }
+		    else {
+	    		header('Content-type: application/json');
+	    		$String = array('code' =>1,'message'=>'failure' );
+	    		return $String;
+	    		//echo json_encode($String);
+	    	}
+		    mysqli_close($conn);
+	}
+
+	public function getEmployees() {
+		$servername = "localhost";
+		$username = "buoot_gaurav";
+		$password = "Gaurav@1";
+		$dbname = "buoot_immigration";
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		    // set the PDO error mode to exception
+		    if (!$conn) {
+		        die("Connection failed: " . mysqli_connect_error());
+		    }
+		    $sql = "SELECT * FROM employee";
+		    $items =  array();
+
+		    $result = [];
+
+		    $result = mysqli_query($conn, $sql);
+		    $i =0;
+
+		    if (mysqli_num_rows($result) >0) {
+		    	while($row = mysqli_fetch_assoc($result)) {
+		    		/*$items['emp_id'] = $row["emp_id"];		    		
+		    		$items['emp_name'] = $row["emp_name"];
+		    		$items['password'] = $row["password"];
+		    		$items['status'] = $row["status"];
+		    		$items['user_type'] = $row["user_type"];*/		    		
+		    		$items[] = $row;
+		    		// $i++;		    		
+		    	}    		    	
+		    	header('Content-type: application/json');
+		    	$String = array('code' =>0,'message'=>'success' );
+		    	$String['data']=$items;
+		    	return $String;
+		    	// echo json_encode($String);
+		    	// return $items;
+		    
+		    }
+		    else {
+	    		header('Content-type: application/json');
+	    		$String = array('code' =>1,'message'=>'failure' );
+	    		return $String;
+	    		//echo json_encode($String);
+	    	}
+		    mysqli_close($conn);
+	}
+
+public function getReferers() {
+	$servername = "localhost";
+	$username = "buoot_gaurav";
+	$password = "Gaurav@1";
+	$dbname = "buoot_immigration";
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	    // set the PDO error mode to exception
+	    if (!$conn) {
+	        die("Connection failed: " . mysqli_connect_error());
+	    }
+	    $sql = "SELECT * FROM referred_by";
+	    $items =  array();
+
+	    $result = [];
+
+	    $result = mysqli_query($conn, $sql);
+	    $i =0;
+
+	    if (mysqli_num_rows($result) >0) {
+	    	while($row = mysqli_fetch_assoc($result)) {
+	    		/*$items['emp_id'] = $row["emp_id"];		    		
+	    		$items['emp_name'] = $row["emp_name"];
+	    		$items['password'] = $row["password"];
+	    		$items['status'] = $row["status"];
+	    		$items['user_type'] = $row["user_type"];*/		    		
+	    		$items[] = $row;
+	    		// $i++;		    		
+	    	}    		    	
+	    	header('Content-type: application/json');
+	    	$String = array('code' =>0,'message'=>'success' );
+	    	$String['data']=$items;
+	    	return $String;
+	    	// echo json_encode($String);
+	    	// return $items;
+	    
+	    }
+	    else {
+    		header('Content-type: application/json');
+    		$String = array('code' =>1,'message'=>'failure' );
+    		return $String;
+    		//echo json_encode($String);
+    	}
+	    mysqli_close($conn);
+}
 	public function getCountries() {
+		$servername = "localhost";
+		$username = "buoot_gaurav";
+		$password = "Gaurav@1";
+		$dbname = "buoot_immigration";
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		    // set the PDO error mode to exception
+		    if (!$conn) {
+		        die("Connection failed: " . mysqli_connect_error());
+		    }
+		    $sql = "SELECT * FROM countries";
+		    $items =  array();
+
+		    $result = [];
+
+		    $result = mysqli_query($conn, $sql);
+		    $i =0;
+
+		    if (mysqli_num_rows($result) >0) {
+		    	while($row = mysqli_fetch_assoc($result)) {
+		    		/*$items['emp_id'] = $row["emp_id"];		    		
+		    		$items['emp_name'] = $row["emp_name"];
+		    		$items['password'] = $row["password"];
+		    		$items['status'] = $row["status"];
+		    		$items['user_type'] = $row["user_type"];*/		    		
+		    		$items[] = $row;
+		    		// $i++;		    		
+		    	}    		    	
+		    	header('Content-type: application/json');
+		    	$String = array('code' =>0,'message'=>'success' );
+		    	$String['data']=$items;
+		    	return $String;
+		    	// echo json_encode($String);
+		    	// return $items;
+		    
+		    }
+		    else {
+	    		header('Content-type: application/json');
+	    		$String = array('code' =>1,'message'=>'failure' );
+	    		return $String;
+	    		//echo json_encode($String);
+	    	}
+		    mysqli_close($conn);
+	}
+
+	public function get_Countries() {
 		$servername = "localhost";
 		$username = "buoot_gaurav";
 		$password = "Gaurav@1";

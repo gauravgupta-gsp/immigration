@@ -49,7 +49,7 @@
 			    	    $last_id = mysqli_insert_id($conn);
 			    	    //echo "New record created successfully. Last inserted ID is: " . $last_id;
         				$response['code'] = 200;
-    	   				$response['message'] = 'User created successfully. Employee id is :  '.$last_id ;
+    	   				$response['message'] = 'Created employee user name is :  '.$last_id ;
 			    	} else {
     		    			$response['code'] = 200;
     			   			$response['message'] = 'Failure'.mysqli_error($conn);

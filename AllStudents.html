@@ -188,86 +188,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Create Employee</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <!-- <input type="text" class="form-control" placeholder="Search for..."> -->
-                    <span class="input-group-btn">
-                      <!-- <button class="btn btn-default" type="button">Go!</button> -->
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <!-- <h2>Form Design <small>different form elements</small></h2> -->
-                    <!-- <h2>Employee Creation </h2> -->
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form  data-parsley-validate class="form-horizontal form-label-left">
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Employee Name <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="txt_emp_name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Employee Password<span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="Password" id="txt_emp_pass"  name="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Employee Type</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control" id="drp_emp_type"     >
-                            <option  value="-1" >Choose option</option>
-                            <option value="0">End User</option>
-                            <option value="1">Admin</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button">Cancel</button>
-						            <button class="btn btn-primary" type="reset">Reset</button>
-                          <!-- <button type="submit"  id="btn_saveEmp" class="btn btn-success">Submit</button> -->
-                            <input type="button" id="btn_saveEmp" value="Submit" class="btn btn-success">
-                        </div>
-                      </div>
-
-                    </form>
-                  </div>
-                </div>
+                <h3>Students</h3>
               </div>
             </div>
           </div>
@@ -275,45 +196,30 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                           <div class="x_panel">
                             <div class="x_title">
-                              <h2>Employees <small></small></h2>
-                              <!-- <ul class="nav navbar-right panel_toolbox">
-                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                  <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                  </ul>
-                                </li>
-                                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                </li>
-                              </ul> -->
-                              <div class="clearfix"></div>
                             </div>
-
                             <div class="x_content">
 
                               <!-- <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p> -->
 
                               <div class="table-responsive">
-                                <table id="employeeTable" class="table table-striped jambo_table bulk_action">
+                                <table id="studentTable" class="table table-striped jambo_table bulk_action">
                                   <thead>
                                     <tr class="headings">
                                       <!-- <th>
                                         <input type="checkbox" id="check-all" class="flat">
                                       </th> -->
-                                      <th class="column-title">Employee Id </th>
+                                      <th class="column-title">Id </th>
                                       <th class="column-title">Name </th>
-                                      <th class="column-title">Password </th>
-                                      <th class="column-title">Employee Type</th>
-                                      <!-- <th class="column-title">Bill to Name </th>
-                                      <th class="column-title">Status </th>
-                                      <th class="column-title">Amount </th>
-                                      <th class="column-title no-link last"><span class="nobr">Action</span>
-                                      </th> -->
+                                      <th class="column-title">Gender </th>
+                                      <th class="column-title">DOB</th>
+                                      <th class="column-title">Email</th>
+                                      <th class="column-title">Mobile </th>
+                                      <th class="column-title">Address</th>
+                                      <th class="column-title">Passport</th>
+                                      <th class="column-title">Visit Purpose </th>
+                                      <th class="column-title">Country</th>
+                                      <th class="column-title no-link last"><span class="nobr">Referer</span>
+                                      </th>
                                       <!-- <th class="bulk-actions" colspan="7">
                                         <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
                                       </th> -->
@@ -404,9 +310,9 @@
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
     <!-- <script src="js/custom/session.js"></script> -->
-	 <script src="js/custom/login.js"></script>
+	 <script src="js/custom/students.js"></script>
    <script type="text/javascript">
-                  getEmployees();
+                  getStudents();
    </script>
   </body>
 </html>

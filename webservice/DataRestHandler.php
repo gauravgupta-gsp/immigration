@@ -11,6 +11,12 @@ class DataRestHandler extends SimpleRest {
 		$this ->formatData($rawData);
 		
 	}
+	function getStudents() {
+		$referer = new Data();
+		$rawData = $referer->getStudents();
+		$this ->formatData($rawData);		
+
+	}
 
 	function getCountries() {	
 			$referer = new Data();
@@ -34,6 +40,12 @@ class DataRestHandler extends SimpleRest {
 			$rawData = $referer->createEmployee($_POST['data']);
 			$this ->formatData($rawData);		
 	}
+	function getEmployees() {	
+			$referer = new Data();
+			$rawData = $referer->getEmployees();
+			$this ->formatData($rawData);	
+	}	
+	
 
 	public function formatData($dataToFormat) {
 		if(empty($dataToFormat)) {

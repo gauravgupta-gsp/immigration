@@ -152,10 +152,10 @@
 		$('#drp_emp_type').val('-1');
 	}
 
-	 function getEmployees()
+	 function getStudents()
     {
     	$.ajax({
-    	url: 'http://buoot.com/webservice/getEmployees',
+    	url: 'http://buoot.com/webservice/getStudents',
     	type: "GET",
     	//accepts: "application/json; charset=utf-8",
     	//data: {"event":{"title": title, "description": desc, "start": start}},
@@ -174,31 +174,13 @@
 
     	$(response.data).each(function(index, element){  
     		if(i % 2 == 0) {
-    	     $('#employeeTable').append('<tr class="odd pointer"><td> '+element.emp_id+' </td> <td> '+element.emp_name+'  </td> </td> <td> '+element.password+'  </td> </td> <td> '+element.user_type+'  </td></tr>');       
+    	     $('#studentTable').append('<tr class="odd pointer"><td> '+element.student_id+' </td> <td> '+element.student_name+' </td> <td> '+element.gender+'  </td>  <td> '+element.bday+'  </td> <td> '+element.email+'  </td> <td> '+element.phone_no+' </td> <td> '+element.passport_no+' </td> <td> '+element.purpose_of_visit+'</td> <td> '+element.country+' </td><td> '+element.referred_by+'  </td></tr>');       
     	 	}
     	 	else {
-    	 		$('#employeeTable').append('<tr class="even pointer"><td> '+element.emp_id+' </td> <td> '+element.emp_name+'  </td> </td> <td> '+element.password+'  </td> </td> <td> '+element.user_type+'  </td></tr>');
+    	 		$('#studentTable').append('<tr class="even pointer"><td> '+element.student_id+' </td> <td> '+element.student_name+' </td> <td> '+element.gender+'  </td>  <td> '+element.bday+'  </td> <td> '+element.email+'  </td> <td> '+element.phone_no+' </td> <td> '+element.passport_no+' </td> <td> '+element.purpose_of_visit+'</td> <td> '+element.country+' </td><td> '+element.referred_by+'  </td></tr>');       
     	 	}
     	});
-    	// var tableData = response.data;
-    	// console.log('Data ' +  tableData[0]);
-
-    	/*var data = { "scores" : [ ["3/1/2011", 610],["4/1/2011", 610],["5/1/2011", 610],["6/1/2011", 610], ["7/1/2011", 720], ["8/1/2011", 500], ["9/1/2011", 500] ] }
-    	$(data.scores).each(function(index, element){  
-    	     $('#scores').append('<tr><td> '+element[0]+' </td> <td> '+element[1]+' </td></tr>');       
-    	})*/
-      // $('#current_student_id').val(response.student_id);
-      // $('#name').val(response.student_name);
-      // $('#phoneNo').val(response.phone_no);
-      // $('#bday').val(response.bday);
-      // $('#email').val(response.email);
-      // $('#passportNo').val('');
-      // console.log('Updated is '+response.updateResult);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
+    	
     	},
     	error: function(error){
     	alert("Something went wrong", error);
@@ -206,110 +188,4 @@
     	});
     }
 
-    function getCountries()
-    {
-    	$.ajax({
-    	url: 'http://buoot.com/webservice/getCountries',
-    	type: "GET",
-    	//accepts: "application/json; charset=utf-8",
-    	//data: {"event":{"title": title, "description": desc, "start": start}},
-    	dataType:'json',
-    	accepts: {
-    	text: "text/plain",
-    	html: "text/html",
-    	xml: "application/xml, text/xml",
-    	json: "application/json, text/javascript"
-    	},
-    	success: function (response) {
-    	console.log(response.data[0]);
-
-    	var tableData = response.data;
-    	var i =1;
-
-    	$(response.data).each(function(index, element){  
-    		if(i % 2 == 0) {
-    	     $('#employeeTable').append('<tr class="odd pointer"><td> '+element.country_id+' </td> <td> '+element.country_name+' </td></tr>');       
-    	 	}
-    	 	else {
-    	 		$('#employeeTable').append('<tr class="even pointer"><td> '+element.country_id+' </td> <td> '+element.country_name+' </td></tr>');
-    	 	}
-    	});
-    	// var tableData = response.data;
-    	// console.log('Data ' +  tableData[0]);
-
-    	/*var data = { "scores" : [ ["3/1/2011", 610],["4/1/2011", 610],["5/1/2011", 610],["6/1/2011", 610], ["7/1/2011", 720], ["8/1/2011", 500], ["9/1/2011", 500] ] }
-    	$(data.scores).each(function(index, element){  
-    	     $('#scores').append('<tr><td> '+element[0]+' </td> <td> '+element[1]+' </td></tr>');       
-    	})*/
-      // $('#current_student_id').val(response.student_id);
-      // $('#name').val(response.student_name);
-      // $('#phoneNo').val(response.phone_no);
-      // $('#bday').val(response.bday);
-      // $('#email').val(response.email);
-      // $('#passportNo').val('');
-      // console.log('Updated is '+response.updateResult);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-    	},
-    	error: function(error){
-    	alert("Something went wrong", error);
-    	}
-    	});
-    }
-
-    function getReferers()
-    {
-    	$.ajax({
-    	url: 'http://buoot.com/webservice/getEmployees',
-    	type: "GET",
-    	//accepts: "application/json; charset=utf-8",
-    	//data: {"event":{"title": title, "description": desc, "start": start}},
-    	dataType:'json',
-    	accepts: {
-    	text: "text/plain",
-    	html: "text/html",
-    	xml: "application/xml, text/xml",
-    	json: "application/json, text/javascript"
-    	},
-    	success: function (response) {
-    	console.log(response.data[0]);
-
-    	var tableData = response.data;
-    	var i =1;
-
-    	$(response.data).each(function(index, element){  
-    		if(i % 2 == 0) {
-    	     $('#employeeTable').append('<tr class="odd pointer"><td> '+element.referred_by_id+' </td> <td> '+element.referred_by_name+' </td></tr>');       
-    	 	}
-    	 	else {
-    	 		$('#employeeTable').append('<tr class="even pointer"><td> '+element.referred_by_id+' </td> <td> '+element.referred_by_name+' </td></tr>');
-    	 	}
-    	});
-    	// var tableData = response.data;
-    	// console.log('Data ' +  tableData[0]);
-
-    	/*var data = { "scores" : [ ["3/1/2011", 610],["4/1/2011", 610],["5/1/2011", 610],["6/1/2011", 610], ["7/1/2011", 720], ["8/1/2011", 500], ["9/1/2011", 500] ] }
-    	$(data.scores).each(function(index, element){  
-    	     $('#scores').append('<tr><td> '+element[0]+' </td> <td> '+element[1]+' </td></tr>');       
-    	})*/
-      // $('#current_student_id').val(response.student_id);
-      // $('#name').val(response.student_name);
-      // $('#phoneNo').val(response.phone_no);
-      // $('#bday').val(response.bday);
-      // $('#email').val(response.email);
-      // $('#passportNo').val('');
-      // console.log('Updated is '+response.updateResult);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-      // $('#').val(response.);
-    	},
-    	error: function(error){
-    	alert("Something went wrong", error);
-    	}
-    	});
-    }
+   

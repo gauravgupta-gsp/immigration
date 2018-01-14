@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 require_once("DataRestHandler.php");
 		
 $view = "";
@@ -9,14 +10,18 @@ controls the RESTful services
 URL mapping
 */
 switch($view){
-
-	case "referrals":
+	case "getStudents":
+		// to handle REST Url /mobile/referers/
+		$dataRestHandler = new DataRestHandler();
+		$dataRestHandler->getStudents();
+		break;
+	case "getReferers":
 		// to handle REST Url /mobile/referers/
 		$dataRestHandler = new DataRestHandler();
 		$dataRestHandler->getReferers();
 		break;
 		
-	case "countries":
+	case "getCountries":
 		// to handle REST Url /mobile/show/<id>/
 		$dataRestHandler = new DataRestHandler();
 		$dataRestHandler->getCountries();
@@ -32,6 +37,12 @@ switch($view){
 		$dataRestHandler->getUnattended();
 		//$dataRestHandler->getMobile($_GET["id"]);
 		break;
+	case "getEmployees":
+		// to handle REST Url /mobile/show/<id>/
+		$dataRestHandler = new DataRestHandler();
+		$dataRestHandler->getEmployees();
+		//$dataRestHandler->getMobile($_GET["id"]);
+		break;		
 	/*case "createEmployee":
 		// to handle REST Url /mobile/show/<id>/
 		$dataRestHandler = new DataRestHandler();

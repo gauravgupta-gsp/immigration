@@ -3,15 +3,12 @@ Options +FollowSymlinks
 RewriteEngine on
 
 # map neat URL to internal URL
-RewriteRule ^getStudents   RestController.php?view=getStudents [nc,qsa]
-RewriteRule ^getReferers   RestController.php?view=getReferers [nc,qsa]
-RewriteRule ^getCountries  RestController.php?view=getCountries [nc,qsa]
+RewriteRule ^referers   RestController.php?view=referrals [nc,qsa]
+RewriteRule ^countries  RestController.php?view=countries [nc,qsa]
 RewriteRule ^getEmployees  RestController.php?view=getEmployees [nc,qsa]
 RewriteRule ^killSession  RestController.php?view=killSession [nc,qsa]
 RewriteRule ^getUnattended  RestController.php?view=getUnattended [nc,qsa]
 RewriteRule ^validateLogin  RestControllerPost.php?view=validateLogin [nc,qsa]
 RewriteRule ^checkSession  RestControllerSession.php?view=checkSession [nc,qsa]
 RewriteRule ^createEmployee  RestControllerLogin.php?view=createEmployee [nc,qsa]
-RewriteRule ^createCountry  CreateCountry.php?view=createCountry [nc,qsa]
-RewriteRule ^createReferer  CreateReferer.php?view=createReferer [nc,qsa]
 RewriteRule ^studentDocs  RestControllerReg.php?view=studentDocs [nc,qsa]
